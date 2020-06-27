@@ -2,9 +2,12 @@
 // タスクの一覧表示機能
 // ファイルの読み込み
 require_once('Models/Task.php');
+require_once('function.php');
 
 // データの取得
-$tasks = new Task();
+$task = new Task();
+$tasks = $task->getAll();
+// var_dump($tasks);
 
 
 ?>
@@ -58,9 +61,9 @@ $tasks = new Task();
                     <div class="card">
                         <img src="https://picsum.photos/200" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title"><?= $task['title'] ;?></h5>
+                            <h5 class="card-title"><?= h($task['title']) ;?></h5>
                             <p class="card-text">
-                                <?= $task['contents']; ?>
+                                <?= h($task['contents']); ?>
                             </p>
                             <div class="text-right d-flex justify-content-end">
                                 <!-- * href内を変更する -->
